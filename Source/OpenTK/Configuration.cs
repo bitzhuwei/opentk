@@ -216,7 +216,7 @@ namespace OpenTK
             return t != null;
         }
 
-        #if SDL2
+#if SDL2
         static bool DetectSdl2()
         {
             bool supported = false;
@@ -231,7 +231,7 @@ namespace OpenTK
             try
             {
                 version = Platform.SDL2.SDL.Version;
-                    if (version.Number >= 2000)
+                if (version.Number >= 2000)
                 {
                     if (Platform.SDL2.SDL.WasInit(0))
                     {
@@ -273,7 +273,7 @@ namespace OpenTK
 
             return supported;
         }
-        #endif
+#endif
 
         static void DetectUnix(out bool unix, out bool linux, out bool macos)
         {
@@ -312,13 +312,7 @@ namespace OpenTK
 
         static bool DetectX11()
         {
-            #if X11
-            // Detect whether X is present.
-            try { return OpenTK.Platform.X11.API.DefaultDisplay != IntPtr.Zero; }
-            catch { return false; }
-            #else
             return false;
-            #endif
         }
 
         #endregion
@@ -350,7 +344,7 @@ namespace OpenTK
                     {
                         RunningOnSdl2 = DetectSdl2();
                     }
-                    
+
                     if ((runningOnLinux && !RunningOnSdl2) || options.Backend == PlatformBackend.PreferX11)
                     {
                         runningOnX11 = DetectX11();
