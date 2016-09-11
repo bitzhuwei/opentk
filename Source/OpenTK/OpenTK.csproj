@@ -253,9 +253,6 @@
     <Compile Include="Configuration.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Exceptions.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="INativeWindow.cs">
       <SubType>Code</SubType>
     </Compile>
